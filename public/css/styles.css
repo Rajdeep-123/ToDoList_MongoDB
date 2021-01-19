@@ -70,9 +70,9 @@ input[type="text"].search:focus{
 }
 .flexBox{
   display: flex;
-  /* width: 100%; */
+  width: 100%;
   justify-content: space-around;
-
+  align-items: center;
   padding-top: 2rem;
 
 }
@@ -165,4 +165,14 @@ footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .flexBox{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+
+  }
 }
