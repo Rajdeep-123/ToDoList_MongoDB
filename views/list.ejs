@@ -1,0 +1,52 @@
+<%- include('header'); -%>
+    <a class="link" href="/">Regular</a>
+    <form class="delete" action="/deletebyid" method="POST">
+
+       <button name="delete" value=" <%= thisDay %>">Delete this task</button>
+
+    </form>
+    <div class="flexBox">
+    <form class="search_box" action="/lists/search" method="post">
+    <input autocomplete="off" class="search" name="search" type="text" name="" id="">
+    <button type="submit" name="query" value="<%= thisDay %>">Search</button>
+
+    </form>
+
+    <form class="query_box" action="/lists/query" method="post">
+        <input autocomplete="off" class="search" name="create" type="text" name="" id="">
+        <button type="submit" name="submit" value="<%= thisDay %>">Create a new task</button>
+
+        </form>
+    </div>
+
+    <!-- <a href="/about">About</a> -->
+
+    <div class="box" id="heading">
+        <h1>
+            <%= thisDay %>
+        </h1>
+    </div>
+
+    <div class="box">
+
+
+
+        <% for(var i=0; i < newItems.length; i++) { %>
+            <form action="/delete" method="POST" >
+            <div class="item">
+                <input type="checkbox" name="checkBox" value=" <%= newItems[i]._id %>" onclick="this.form.submit()">
+                <input type="hidden" name="check" value="  <%= thisDay %>">
+                <p>
+                    <%= newItems[i].name %>
+                </p>
+
+            </div>
+        </form>
+            <% } %>
+                <form class="item" action="/" method="POST">
+                    <input class="items" type="text" name="listItem" placeholder="New Item" required autocomplete="off">
+                    <button class="btn" type="submit" name="list" value=<%=thisDay %>>+</button>
+                </form>
+
+    </div>
+    <%- include('footer'); -%>
